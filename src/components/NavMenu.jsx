@@ -44,7 +44,7 @@ function NavList() {
         className="p-1 font-medium"
       >
         <Link
-          to="/"
+          to="/S&K"
           className="text-lg font-semibold text-neutral-800 hover:text-blue-600 duration-200"
         >
           Syarat & Ketentuan
@@ -63,23 +63,23 @@ function NavList() {
               {
                 key: 1,
                 label: (
-                  <span
-                    onClick={() => alert("profile")}
+                  <Link
+                    to="/order"
                     className="text-lg font-semibold text-neutral-800 hover:text-blue-600 duration-200"
                   >
                     Pesanan
-                  </span>
+                  </Link>
                 ),
               },
               {
                 key: 1,
                 label: (
-                  <span
-                    onClick={handleLogout}
+                  <Link
+                    to="/history"
                     className="text-lg font-semibold text-neutral-800 hover:text-blue-600 duration-200"
                   >
                     History
-                  </span>
+                  </Link>
                 ),
               },
             ],
@@ -89,6 +89,19 @@ function NavList() {
             Pesanan
           </span>
         </Dropdown>
+      </Typography>
+      <Typography
+        as="li"
+        variant="h5"
+        color="blue-gray"
+        className="p-1 font-medium"
+      >
+        <Link
+          to="/"
+          className="text-lg font-semibold text-neutral-800 hover:text-blue-600 duration-200"
+        >
+          Wishlist
+        </Link>
       </Typography>
       <Typography
         as="li"

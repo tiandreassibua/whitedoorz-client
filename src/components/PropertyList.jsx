@@ -6,10 +6,10 @@ const PropertyList = ({ properties, category }) => {
   );
 
   return (
-    <div className="grid grid-cols-1  md:grid-cols-4 gap-5 justify-between">
-      {filteredProperties.map((property) => {
-        return <PropertyItem property={property} key={property.id} />;
-      })}
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 justify-between">
+      {filteredProperties.map((property) => (
+        <PropertyItem property={property} key={property.id} />
+      ))}
     </div>
   );
 };
