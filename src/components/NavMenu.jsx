@@ -72,7 +72,7 @@ function NavList() {
                 ),
               },
               {
-                key: 1,
+                key: 2,
                 label: (
                   <Link
                     to="/history"
@@ -126,7 +126,7 @@ function NavList() {
                   ),
                 },
                 {
-                  key: 1,
+                  key: 2,
                   label: (
                     <span
                       onClick={handleLogout}

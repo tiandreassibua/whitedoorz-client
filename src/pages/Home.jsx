@@ -10,7 +10,7 @@ function Home() {
 
   const fetchProperties = async () => {
     const response = await axiosClient.get("/properties");
-    setProperties(response.data.data);
+    setProperties(response.data.data.properties);
   };
 
   const handleType = (category) => {
