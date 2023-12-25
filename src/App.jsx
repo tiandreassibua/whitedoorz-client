@@ -8,6 +8,8 @@ import RegisterPage from "./pages/Register";
 import LoginPage from "./pages/Login";
 import Order from "./pages/Order";
 import History from "./pages/History";
+import Ratting from "./pages/Ratting";
+import SAK from "./pages/S&K";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -23,6 +25,8 @@ function App() {
             <Route path="/:slug" element={<PropertyDetailPage />} />
             <Route path="/order" element={<Order />} />
             <Route path="/history" element={<History />} />
+            <Route path="/ratting" element={<Ratting />} />
+            <Route path="/S&K" element={<SAK />} />
           </Route>
           <Route path="/" element={<AuthLayout />}>
             <Route path="/register" element={<RegisterPage />} />

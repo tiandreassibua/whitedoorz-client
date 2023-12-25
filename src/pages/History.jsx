@@ -6,11 +6,20 @@ import {
 } from "@material-tailwind/react";
 import { FaCheckCircle } from "react-icons/fa";
 import { BiSolidDoorOpen } from "react-icons/bi";
-
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { IoIosPeople } from "react-icons/io";
 import { IoBedOutline } from "react-icons/io5";
+import { getUserAuth } from "../functions";
 
 const History = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!getUserAuth()) {
+      navigate("/login");
+    }
+  });
   return (
     <>
       <div className="border shadow-md rounded-xl border-black h-auto my-10 px-5 py-4">
@@ -64,13 +73,12 @@ const History = () => {
                 </p>
               </div>
               <div className="w-full flex mt-5 gap-1">
-                <BiSolidDoorOpen size={40} />
                 <p
                   variant="h5"
                   color="gray"
                   className="font-semibold flex items-center"
                 >
-                  5 Kamar
+                  <BiSolidDoorOpen size={40} />5 Kamar
                 </p>
               </div>
             </CardBody>
