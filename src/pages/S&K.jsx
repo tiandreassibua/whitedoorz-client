@@ -1,17 +1,6 @@
 import { Typography } from "@material-tailwind/react";
 
-import { getUserAuth } from "../functions";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
-const Ratting = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!getUserAuth()) {
-      navigate("/login");
-    }
-  });
+const SAK = () => {
   return (
     <>
       <div className=" xl:min-h-screen rounded my-20 ">
@@ -41,4 +30,4 @@ const Ratting = () => {
   );
 };
 
-export default Ratting;
+export default SAK;
