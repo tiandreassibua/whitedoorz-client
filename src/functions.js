@@ -70,3 +70,38 @@ export const getTransactionList = async () => {
         toast.info(error.response.data.errors);
     }
 };
+
+export const getTransaction = async (transactionId) => {
+    try {
+        const res = await axiosClient.get(`/transactions/${transactionId}`, {
+            headers: {
+                Authorization: `Bearer ${getToken()}`,
+            },
+        });
+        return res.data;
+    } catch (error) {
+        toast.info(error.response.data.errors);
+    }
+};
+
+export const createReview = async (data) => {
+    try {
+        const res = await axiosClient.post(
+            `/reviews/${data.transactionId}`,
+            {
+                body: data.body,
+                rating: data.rating,
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${getToken()}`,
+                },
+            }
+        );
+
+        return res.data;
+    } catch (error) {
+        toast.info(error.response.data.errors);
+        return;
+    }
+};

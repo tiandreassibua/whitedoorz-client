@@ -27,7 +27,9 @@ const PropertyDetailPage = () => {
         };
 
         fetchProperty();
-    }, [slug, navigate]);
+
+        document.title = "WhiteDoorz | " + property?.name;
+    }, [slug, navigate, property?.name]);
 
     return (
         <>

@@ -179,7 +179,7 @@ const History = () => {
                                 {new Date(transaction.checkOut) < new Date() ? (
                                     <Link
                                         className="py-4 text-center text-lg font-semibold bg-red-600 hover:bg-red-700 text-white rounded"
-                                        to="/"
+                                        to={`/rating/${transaction.id}`}
                                     >
                                         Beri penilaian
                                     </Link>

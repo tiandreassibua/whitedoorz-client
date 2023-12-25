@@ -13,6 +13,7 @@ import { useCart } from "react-use-cart";
 import { useDisclosure } from "@chakra-ui/react";
 import ModalComp from "../components/ModalComp";
 import { toast } from "react-toastify";
+import moment from "moment";
 
 const Order = () => {
     const { items, cartTotal, isEmpty, removeItem, emptyCart } = useCart();
@@ -47,8 +48,10 @@ const Order = () => {
         getProp(slug);
 
         const countTotal = (checkIn, checkOut) => {
-            const nights =
-                new Date(checkOut).getDate() - new Date(checkIn).getDate();
+            const cekOut = moment(checkOut)
+            const cekIn = moment(checkIn)
+            const nights = cekOut.diff(cekIn, "days");
+            
             setTotalPrice(cartTotal * nights);
         };
 
@@ -73,7 +76,7 @@ const Order = () => {
         };
 
         await createTransaction(data);
-        toast.success("Transaksi berhasil dibuat")
+        toast.success("Transaksi berhasil dibuat");
         emptyCart();
         navigate("/history");
     };
@@ -84,7 +87,9 @@ const Order = () => {
         <>
             <div className="min-h-screen">
                 {isEmpty ? (
-                    <h1 className="mt-10 text-3xl text-center font-bold">Belum ada data!</h1>
+                    <h1 className="mt-10 text-3xl text-center font-bold">
+                        Belum ada data!
+                    </h1>
                 ) : (
                     <div className="border shadow-md rounded-xl  border-black h-auto my-10 px-5 py-4">
                         <div className="flex">
@@ -121,8 +126,18 @@ const Order = () => {
                                                 className="mb-2 flex items-center"
                                             >
                                                 {item.name}
-                                                <IoTrashBinSharp onClick={onOpen} size={25} className="ml-3 text-red-500 hover:cursor-pointer" />
-                                                <ModalComp removeItem={removeItem} onClose={onClose} isOpen={isOpen} id={item.id} text="Yakin ingin menghapus item ini?" />
+                                                <IoTrashBinSharp
+                                                    onClick={onOpen}
+                                                    size={25}
+                                                    className="ml-3 text-red-500 hover:cursor-pointer"
+                                                />
+                                                <ModalComp
+                                                    removeItem={removeItem}
+                                                    onClose={onClose}
+                                                    isOpen={isOpen}
+                                                    id={item.id}
+                                                    text="Yakin ingin menghapus item ini?"
+                                                />
                                             </Typography>
                                             <p className="mb-5 font-bold text-lg">
                                                 {IDR.format(item.price)}

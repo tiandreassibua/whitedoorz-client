@@ -4,8 +4,8 @@ import {
     CardBody,
     Typography,
     Avatar,
-    Rating,
 } from "@material-tailwind/react";
+import { Rate } from "antd";
 
 export default function ReviewItem({ review }) {
     return (
@@ -31,7 +31,7 @@ export default function ReviewItem({ review }) {
                         <Typography variant="h5" color="blue-gray">
                             {review.user.firstName} {review.user.lastName}
                         </Typography>
-                        <Rating value={review.rating} />
+                        <Rate value={review.rating} disabled />
                     </div>
                 </div>
             </CardHeader>
