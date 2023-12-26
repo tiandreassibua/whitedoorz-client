@@ -27,6 +27,7 @@ const LoginPage = () => {
         navigate("/");
       }
     } catch (e) {
+      console.log(e)
       toast.error(e.response.data.errors);
     }
   };

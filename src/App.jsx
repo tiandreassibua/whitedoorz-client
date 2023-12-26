@@ -18,7 +18,7 @@ import Rating from "./pages/Rating";
 
 function App() {
   return (
-    <>
+    <div className="font-poppins">
       <BrowserRouter>
         <ToastContainer />
         <Routes>
@@ -30,7 +30,7 @@ function App() {
             <Route path="/history" element={<History />} />
             <Route path="/rating/:transactionId" element={<Rating />} />
             <Route path="/S&K" element={<SAK />} />
-            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/wishlists" element={<Wishlist />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
           </Route>
@@ -40,7 +40,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

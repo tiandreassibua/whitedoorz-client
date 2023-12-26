@@ -135,6 +135,7 @@ const Order = () => {
                           isOpen={isOpen}
                           id={item.id}
                           text="Yakin ingin menghapus item ini?"
+                          redirectTo="/order"
                         />
                       </Typography>
                       <p className="mb-5 font-bold text-lg">

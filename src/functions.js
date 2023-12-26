@@ -105,3 +105,47 @@ export const createReview = async (data) => {
         return;
     }
 };
+
+export const getWishlists = async () => {
+    try {
+        const res = await axiosClient.get("/wishlists", {
+            headers: {
+                Authorization: `Bearer ${getToken()}`,
+            },
+        });
+
+        return res.data;
+    } catch (error) {
+        toast.error(error.response.data.errors);
+    }
+};
+
+export const removeWishlist = async (propId, id) => {
+    try {
+        const res = await axiosClient.delete(`/properties/${propId}/wishlists/${id}`, {
+            headers: {
+                Authorization: `Bearer ${getToken()}`
+            }
+        })
+
+        return res.data;
+    } catch (error) {
+        toast.error(error.response.data.errors);
+        return;
+    }
+};
+
+export const updateProfile = async (data) => {
+    try {
+        const res = await axiosClient.put("/users/profile", data, {
+            headers: {
+                Authorization: `Bearer ${getToken()}`,
+            },
+        });
+
+        return res.data;
+    } catch (error) {
+        console.log(error);
+        toast.error(error.response.data.errors);
+    }
+}
