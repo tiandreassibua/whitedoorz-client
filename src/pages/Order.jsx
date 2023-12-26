@@ -44,6 +44,7 @@ const Order = () => {
     if (!getUserAuth()) {
       navigate("/login");
     }
+    document.title = "WhiteDoorz | Pesanan";
 
     getProp(slug);
 
@@ -202,7 +203,7 @@ const Order = () => {
                 </h1>
                 <button
                   onClick={handleTransaction}
-                  className="mt-5 px-10 py-5 w-full  bg-blue-600 hover:bg-blue-700 text-white rounded"
+                  className="mt-5 px-10 py-5 w-full bg-blue-600 hover:bg-blue-700 text-white rounded"
                 >
                   Pesan
                 </button>
