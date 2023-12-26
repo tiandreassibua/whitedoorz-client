@@ -97,7 +97,7 @@ function NavList() {
         className="p-1 font-medium"
       >
         <Link
-          to="/"
+          to="/wishlist"
           className="text-lg font-semibold text-neutral-800 hover:text-blue-600 duration-200"
         >
           Wishlist
@@ -117,12 +117,12 @@ function NavList() {
                 {
                   key: 1,
                   label: (
-                    <span
-                      onClick={() => alert("profile")}
+                    <Link
+                      to="/profile"
                       className="text-lg font-semibold text-neutral-800 hover:text-blue-600 duration-200"
                     >
                       Profile
-                    </span>
+                    </Link>
                   ),
                 },
                 {

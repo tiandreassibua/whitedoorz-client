@@ -9,6 +9,9 @@ import LoginPage from "./pages/Login";
 import Order from "./pages/Order";
 import History from "./pages/History";
 import SAK from "./pages/S&K";
+import Wishlist from "./pages/Wishlist";
+import Search from "./pages/Search";
+import Profile from "./pages/Profile";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Rating from "./pages/Rating";
@@ -27,6 +30,9 @@ function App() {
             <Route path="/history" element={<History />} />
             <Route path="/rating/:transactionId" element={<Rating />} />
             <Route path="/S&K" element={<SAK />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
           <Route path="/" element={<AuthLayout />}>
             <Route path="/register" element={<RegisterPage />} />
