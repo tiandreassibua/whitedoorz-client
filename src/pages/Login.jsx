@@ -1,5 +1,5 @@
 import { Button } from "@material-tailwind/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { axiosClient } from "../axios";
@@ -16,6 +16,10 @@ const LoginPage = () => {
     });
   };
 
+  useEffect(() => {
+    document.title = "WhiteDoorz | Login";
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -27,7 +31,7 @@ const LoginPage = () => {
         navigate("/");
       }
     } catch (e) {
-      console.log(e)
+      console.log(e);
       toast.error(e.response.data.errors);
     }
   };

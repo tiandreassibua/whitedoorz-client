@@ -85,7 +85,6 @@ function Home() {
         </form>
       </div>
       <div className="mt-20">
-        <h1 className="text-3xl font-semibold">Rekomendasi Kami</h1>
         <div className="my-5">
           <PropertyList properties={properties} category={category} />
         </div>
