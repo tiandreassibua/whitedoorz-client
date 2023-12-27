@@ -1,4 +1,3 @@
-import { Button } from "@material-tailwind/react";
 import PropertyList from "../components/PropertyList";
 import { useEffect, useState } from "react";
 import { axiosClient } from "../axios";

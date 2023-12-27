@@ -56,25 +56,28 @@ const PropertyDetailPage = () => {
             </div>
             <div className="mt-10">
                 <div className="w-full">
-                    <div className="flex gap-8">
-                        <h1 className="flex items-center text-3xl font-semibold font-inter">
-                            {property.name}
-                        </h1>
-                        <div className="flex items-center gap-x-2">
-                            <FaStar className="text-yellow-700" size={25} />
-                            <span className="text-xl">{property.rating}/5</span>
-                        </div>
-                    </div>
-                    <p className="mt-2 text-sm text-gray-600">
-                        {property.address}
-                    </p>
-                    <div className="flex gap-10">
-                        <div className="w-3/4">
-                            <p className="mt-2 text-base text-gray-800">
-                                {property.description}
+                    <div className="flex flex-col lg:flex-row gap-y-5 justify-between">
+                        <div>
+                            <div className="flex gap-8">
+                                <h1 className="flex items-center text-3xl font-semibold font-inter">
+                                    {property.name}
+                                </h1>
+                                <div className="flex items-center gap-x-2">
+                                    <FaStar
+                                        className="text-yellow-700"
+                                        size={25}
+                                    />
+                                    <span className="text-xl">
+                                        {property.rating}/5
+                                    </span>
+                                </div>
+                            </div>
+                            <p className="mt-2 text-sm text-gray-600">
+                                {property.address}
                             </p>
                         </div>
-                        <div className="w-1/3 flex justify-end gap-5">
+
+                        <div className="flex gap-x-2">
                             <button
                                 onClick={handleWishlist(property.id)}
                                 className="flex items-center bg-gray-200 py-3 px-4 rounded group"
@@ -88,13 +91,21 @@ const PropertyDetailPage = () => {
                                 onClick={() =>
                                     document
                                         .getElementById("rooms")
-                                        .scrollIntoView({ behavior: "smooth" })
+                                        .scrollIntoView({
+                                            behavior: "smooth",
+                                        })
                                 }
                                 className="bg-blue-500 text-white font-bold py-3 px-4 rounded"
                             >
                                 Pilih kamar
                             </button>
                         </div>
+                    </div>
+                    <div className="mt-10 w-full">
+                        <h2 className="text-2xl font-bold">Tentang {property.name}</h2>
+                        <p className="mt-2 text-base text-gray-800">
+                            {property.description}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -105,7 +116,7 @@ const PropertyDetailPage = () => {
                         ? "Tipe kamar yang tersedia"
                         : "Tidak ada kamar yang tersedia saat ini"}
                 </h2>
-                <div className="mt-10 grid grid-cols-2 gap-5">
+                <div className="mt-10 grid md:grid-cols-2 gap-5">
                     {rooms?.length > 0 &&
                         rooms.map((room) => (
                             <RoomItem

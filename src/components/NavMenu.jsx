@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../asset/logo.png";
 import { FaBars } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";

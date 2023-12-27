@@ -45,10 +45,10 @@ export default function RoomItem({ room, propertyId, slug }) {
                 />
             </CardHeader>
             <CardBody>
-                <Typography variant="h5" color="blue-gray" className="mb-2">
+                <h2 className="mb-5 font-bold text-lg">
                     {room.name}
-                </Typography>
-                <div className="w-full grid grid-cols-3 items-center">
+                </h2>
+                <div className="w-full mb-2 grid grid-cols-2 lg:grid-cols-3 items-center">
                     <p
                         variant="h5"
                         color="gray"
@@ -71,7 +71,7 @@ export default function RoomItem({ room, propertyId, slug }) {
                         />
                         {room.maxPeople}
                     </p>
-                    <p>{IDR.format(room.price)}</p>
+                    <p className="col-span-2 mt-2 lg:col-span-1 lg:text-sm">{IDR.format(room.price)}</p>
                 </div>
                 <button
                     disabled={!room.available}
