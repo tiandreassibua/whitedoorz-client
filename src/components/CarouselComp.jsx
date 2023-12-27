@@ -1,11 +1,11 @@
-import { Carousel, Typography } from "@material-tailwind/react";
+import { Carousel, Chip, Typography } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 
 export default function CarouselComp({ properties }) {
     return (
         <Carousel className="rounded-xl">
             {properties?.map((item) => (
-                <div key={item.id} className="relative h-[600px] w-full">
+                <div key={item.id} className="relative md:h-[600px] w-full">
                     <img
                         src={item.image}
                         alt={item.name}
@@ -16,26 +16,17 @@ export default function CarouselComp({ properties }) {
                             <Typography
                                 variant="h1"
                                 color="white"
-                                className="mb-4 text-xl md:text-2xl lg:text-4xl"
+                                className="mb-4 p-2 text-lg md:text-2xl lg:text-4xl"
                             >
                                 {item.name}
-                            </Typography>
-                            <Typography
-                                variant="lead"
-                                className="mb-12 opacity-80 text-base text-white/90"
-                            >
-                                {item.description}
                             </Typography>
                             <div className="flex justify-center gap-2">
                                 <Link
                                     to={`/${item.slug}`}
-                                    className="py-3 px-6 bg-white font-bold rounded uppercase"
+                                    className="px-4 py-2 md:py-3 text-sm md:px-6 bg-white font-bold rounded uppercase"
                                 >
                                     Lihat Sekarang
                                 </Link>
-                                {/* <Button size="lg" color="white" variant="text">
-                                    Gallery
-                                </Button> */}
                             </div>
                         </div>
                     </div>

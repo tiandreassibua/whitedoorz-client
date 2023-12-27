@@ -31,7 +31,7 @@ function App() {
             <Route path="/rating/:transactionId" element={<Rating />} />
             <Route path="/S&K" element={<SAK />} />
             <Route path="/wishlists" element={<Wishlist />} />
-            <Route path="/search" element={<Search />} />
+            <Route path="/search/:keyword" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
           </Route>
           <Route path="/" element={<AuthLayout />}>

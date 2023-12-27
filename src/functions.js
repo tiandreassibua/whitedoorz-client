@@ -51,6 +51,19 @@ export const getProperties = async () => {
     }
 };
 
+export const search = async (keyword) => {
+    try {
+        const res = await axiosClient.get("/properties", {
+            params: {
+                keyword,
+            },
+        });
+        return res.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export const getProp = async (id) => {
     const properties = await getProperties();
     const property = properties.find((item) => item.id === id);
@@ -122,11 +135,14 @@ export const getWishlists = async () => {
 
 export const removeWishlist = async (propId, id) => {
     try {
-        const res = await axiosClient.delete(`/properties/${propId}/wishlists/${id}`, {
-            headers: {
-                Authorization: `Bearer ${getToken()}`
+        const res = await axiosClient.delete(
+            `/properties/${propId}/wishlists/${id}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${getToken()}`,
+                },
             }
-        })
+        );
 
         return res.data;
     } catch (error) {
@@ -148,4 +164,22 @@ export const updateProfile = async (data) => {
         console.log(error);
         toast.error(error.response.data.errors);
     }
-}
+};
+
+export const addWishlist = async (propId) => {
+    try {
+        const res = await axiosClient.post(
+            `properties/${propId}/wishlists`,
+            {},
+            {
+                headers: {
+                    Authorization: `Bearer ${getToken()}`,
+                },
+            }
+        );
+        return res.data;
+    } catch (error) {
+        toast.warning(error.response.data.errors);
+        return;
+    }
+};

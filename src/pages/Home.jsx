@@ -5,57 +5,55 @@ import { axiosClient } from "../axios";
 import CarouselComp from "../components/CarouselComp";
 
 function Home() {
-  const [category, setCategory] = useState("hotel");
-  const [properties, setProperties] = useState([]);
+    const [category, setCategory] = useState("hotel");
+    const [properties, setProperties] = useState([]);
 
-  const fetchProperties = async () => {
-    const response = await axiosClient.get("/properties");
-    setProperties(response.data.data.properties);
-  };
+    const fetchProperties = async () => {
+        const response = await axiosClient.get("/properties");
+        setProperties(response.data.data);
+    };
 
-  const handleType = (category) => {
-    setCategory(category);
-  };
+    const handleType = (category) => {
+        setCategory(category);
+    };
 
-  useEffect(() => {
-    fetchProperties();
+    useEffect(() => {
+        fetchProperties();
 
-    document.title = "WhiteDoorz | Home";
-  }, []);
+        document.title = "WhiteDoorz | Home";
+    }, []);
 
-  return (
-    <>
-      <div className="my-10">
-        <CarouselComp properties={properties} />
-        {/* <SwiperComp properties={properties} /> */}
-        {/* <img src={banner} alt="img" className="w-full object-cover" /> */}
-      </div>
-      <div className="flex justify-center my-10">
-        <div className="flex gap-5 uppercase">
-          <span
-            onClick={() => handleType("hotel")}
-            className={`${
-              category === "hotel"
-                ? "border-b-2 border-blue-700 text-blue-700"
-                : ""
-            } hover:cursor-pointer hover:text-blue-700 font-semibold hover:border-b-blue-700`}
-          >
-            Hotel
-          </span>
-          |
-          <span
-            onClick={() => handleType("apartment")}
-            className={`${
-              category === "apartment"
-                ? "border-b-2 border-blue-700 text-blue-700"
-                : ""
-            } hover:cursor-pointer hover:text-blue-700 font-semibold hover:border-b-blue-700`}
-          >
-            Apartment
-          </span>
-        </div>
-      </div>
-      <div>
+    return (
+        <>
+            <div className="my-10">
+                <CarouselComp properties={properties} />
+            </div>
+            <div className="flex justify-center mt-20">
+                <div className="flex gap-5 uppercase">
+                    <span
+                        onClick={() => handleType("hotel")}
+                        className={`${
+                            category === "hotel"
+                                ? "border-b-2 border-blue-700 text-blue-700"
+                                : ""
+                        } hover:cursor-pointer hover:text-blue-700 font-semibold hover:border-b-blue-700`}
+                    >
+                        Hotel
+                    </span>
+                    |
+                    <span
+                        onClick={() => handleType("apartment")}
+                        className={`${
+                            category === "apartment"
+                                ? "border-b-2 border-blue-700 text-blue-700"
+                                : ""
+                        } hover:cursor-pointer hover:text-blue-700 font-semibold hover:border-b-blue-700`}
+                    >
+                        Apartment
+                    </span>
+                </div>
+            </div>
+            {/* <div>
         <form className="flex justify-between gap-5">
           <div className="w-full flex justify-around border border-gray-600 rounded-lg">
             <input
@@ -83,14 +81,14 @@ function Home() {
             Cari
           </Button>
         </form>
-      </div>
-      <div className="mt-20">
-        <div className="my-5">
-          <PropertyList properties={properties} category={category} />
-        </div>
-      </div>
-    </>
-  );
+      </div> */}
+            <div className="mt-10">
+                <div className="my-5">
+                    <PropertyList properties={properties} category={category} />
+                </div>
+            </div>
+        </>
+    );
 }
 
 export default Home;

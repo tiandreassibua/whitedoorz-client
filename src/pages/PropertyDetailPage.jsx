@@ -7,6 +7,8 @@ import ReviewList from "../components/ReviewList";
 import { axiosClient } from "../axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { FaHeart } from "react-icons/fa6";
+import { addWishlist } from "../functions";
 
 const PropertyDetailPage = () => {
     const [property, setProperty] = useState({});
@@ -14,6 +16,13 @@ const PropertyDetailPage = () => {
     const navigate = useNavigate();
 
     const rooms = property?.rooms;
+
+    const handleWishlist = (propertyId) => async () => {
+        const res = await addWishlist(propertyId);
+        if (res?.data) {
+            toast.success("Berhasil ditambahkan ke wishlist");
+        }
+    };
     useEffect(() => {
         const fetchProperty = async () => {
             try {
@@ -65,16 +74,25 @@ const PropertyDetailPage = () => {
                                 {property.description}
                             </p>
                         </div>
-                        <div className="w-1/3 flex">
+                        <div className="w-1/3 flex justify-end gap-5">
+                            <button
+                                onClick={handleWishlist(property.id)}
+                                className="flex items-center bg-gray-200 py-3 px-4 rounded group"
+                            >
+                                <FaHeart
+                                    className="group-hover:text-red-500 text-gray-400 duration-150"
+                                    size={30}
+                                />
+                            </button>
                             <button
                                 onClick={() =>
                                     document
                                         .getElementById("rooms")
                                         .scrollIntoView({ behavior: "smooth" })
                                 }
-                                className="w-full h-14 bg-blue-500 text-white font-bold py-2 px-4 rounded "
+                                className="bg-blue-500 text-white font-bold py-3 px-4 rounded"
                             >
-                                pilih kamar
+                                Pilih kamar
                             </button>
                         </div>
                     </div>
