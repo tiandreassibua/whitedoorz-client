@@ -1,11 +1,11 @@
-import { Carousel, Chip, Typography } from "@material-tailwind/react";
+import { Carousel,Typography } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 
 export default function CarouselComp({ properties }) {
     return (
-        <Carousel className="rounded-xl">
+        <Carousel className="rounded-xl bg-red-50">
             {properties?.map((item) => (
-                <div key={item.id} className="relative md:h-[600px] w-full">
+                <div key={item.id} className="relative h-[300px] md:h-[600px] w-full">
                     <img
                         src={item.image}
                         alt={item.name}

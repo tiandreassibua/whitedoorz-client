@@ -44,7 +44,7 @@ const NavMenu = () => {
 
     return (
         <div className="w-full font-poppins">
-            <Navbar className="mx-auto max-w-full rounded-none px-6 py-3 ">
+            <Navbar className="mx-auto max-w-full rounded-none px-10 py-3 shadow-sm">
                 <div className="grid grid-cols-2 md:flex md:justify-center lg:grid lg:grid-cols-3 py-3 items-center justify-between text-blue-gray-900">
                     <div className="flex flex-row items-center">
                         <Link to="/">
@@ -64,14 +64,14 @@ const NavMenu = () => {
                         </form>
                     </div>
 
-                    <div className="hidden lg:block">
+                    <div className="hidden lg:flex lg:justify-end">
                         {/* <NavList /> */}
                         <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
                             <Typography
                                 as="li"
                                 variant="h5"
                                 color="blue-gray"
-                                className="p-1 font-medium"
+                                className="font-medium"
                             >
                                 <Link
                                     to="/"
@@ -84,7 +84,7 @@ const NavMenu = () => {
                                 as="li"
                                 variant="h5"
                                 color="blue-gray"
-                                className="p-1 font-medium"
+                                className="font-medium"
                             >
                                 <Link
                                     to="/S&K"
@@ -136,19 +136,6 @@ const NavMenu = () => {
                                             </span>
                                         </Dropdown>
                                     </Typography>
-                                    <Typography
-                                        as="li"
-                                        variant="h5"
-                                        color="blue-gray"
-                                        className="p-1 font-medium"
-                                    >
-                                        <Link
-                                            to="/wishlists"
-                                            className="text-lg font-semibold text-neutral-800 hover:text-blue-600 duration-200"
-                                        >
-                                            Wishlists
-                                        </Link>
-                                    </Typography>
                                 </>
                             )}
 
@@ -176,6 +163,17 @@ const NavMenu = () => {
                                                 },
                                                 {
                                                     key: 2,
+                                                    label: (
+                                                        <Link
+                                                            to="/wishlists"
+                                                            className="text-lg font-semibold text-neutral-800 hover:text-blue-600 duration-200"
+                                                        >
+                                                            Wishlists
+                                                        </Link>
+                                                    ),
+                                                },
+                                                {
+                                                    key: 3,
                                                     label: (
                                                         <span
                                                             onClick={

@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa6";
 import { addWishlist } from "../functions";
+import { Image } from "@chakra-ui/react";
 
 const PropertyDetailPage = () => {
     const [property, setProperty] = useState({});
@@ -53,6 +54,19 @@ const PropertyDetailPage = () => {
                     src={property.location}
                     width="100%"
                 />
+            </div>
+            <div>
+                <div className="mt-5 w-full flex flex-col lg:flex-row gap-x-5">
+                    {rooms?.length > 0 &&
+                        rooms.map((room) => (
+                            <div
+                                key={room.id}
+                                className="flex flex-col gap-y-2"
+                            >
+                                <Image boxSize='100px' src={room.image} className="rounded" />
+                            </div>
+                        ))}
+                </div>
             </div>
             <div className="mt-10">
                 <div className="w-full">
@@ -102,7 +116,9 @@ const PropertyDetailPage = () => {
                         </div>
                     </div>
                     <div className="mt-10 w-full">
-                        <h2 className="text-2xl font-bold">Tentang {property.name}</h2>
+                        <h2 className="text-2xl font-bold">
+                            Tentang {property.name}
+                        </h2>
                         <p className="mt-2 text-base text-gray-800">
                             {property.description}
                         </p>

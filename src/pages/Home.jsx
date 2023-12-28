@@ -2,6 +2,7 @@ import PropertyList from "../components/PropertyList";
 import { useEffect, useState } from "react";
 import { axiosClient } from "../axios";
 import CarouselComp from "../components/CarouselComp";
+import { Spinner } from "@chakra-ui/react";
 
 function Home() {
     const [category, setCategory] = useState("hotel");
@@ -52,38 +53,19 @@ function Home() {
                     </span>
                 </div>
             </div>
-            {/* <div>
-        <form className="flex justify-between gap-5">
-          <div className="w-full flex justify-around border border-gray-600 rounded-lg">
-            <input
-              type="text"
-              className="mx-1 text-center border-r border-gray-600 outline-none w-full placeholder:text-gray-500 font-semibold"
-              placeholder="Destinasi"
-            />
-            <input
-              type="text"
-              className="mx-1 text-center border-r border-gray-600 outline-none w-full placeholder:text-gray-500 font-semibold"
-              placeholder="Check-in"
-            />
-            <input
-              type="text"
-              className="mx-1 text-center border-r border-gray-600 outline-none w-full placeholder:text-gray-500 font-semibold"
-              placeholder="Check-out"
-            />
-            <input
-              type="text"
-              className="mx-1 text-center outline-none w-full placeholder:text-gray-500 font-semibold"
-              placeholder="Tamu dan Kamar"
-            />
-          </div>
-          <Button type="submit" variant="outlined" color="gray" size="lg">
-            Cari
-          </Button>
-        </form>
-      </div> */}
             <div className="mt-10">
                 <div className="my-5">
-                    <PropertyList properties={properties} category={category} />
+                    {properties.length === 0 ? (
+                        <div className="flex justify-center items-center my-10 gap-x-2 animate-pulse">
+                            <Spinner size="lg" thickness="4px" speed="0.8s" />
+                            <p className="text-xl text-gray-800 font-bold">Loading...</p>
+                        </div>
+                    ) : (
+                        <PropertyList
+                            properties={properties}
+                            category={category}
+                        />
+                    )}
                 </div>
             </div>
         </>

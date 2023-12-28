@@ -39,6 +39,7 @@ export const createTransaction = async (data) => {
     } catch (error) {
         toast.warning(error.response.data.errors);
         console.log(error);
+        return;
     }
 };
 
