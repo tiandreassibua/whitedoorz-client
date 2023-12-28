@@ -2,7 +2,6 @@ import {
     Card,
     CardHeader,
     CardBody,
-    Typography,
 } from "@material-tailwind/react";
 import { IoIosPeople } from "react-icons/io";
 import { IoBedOutline } from "react-icons/io5";
